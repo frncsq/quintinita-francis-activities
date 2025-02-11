@@ -1,0 +1,16 @@
+.box1{
+    margin:10px;
+    padding:8px;
+    border:8px solid blue;
+    width: 100px;
+    height: 90px;
+    font-size: 15px;
+}
+
+.box2 {
+    margin:15px;
+    padding:10px;
+    border:10px solid gray;
+    width:120px;
+    height: 100px;
+}
