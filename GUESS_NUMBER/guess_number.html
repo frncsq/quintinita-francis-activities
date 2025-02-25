@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <script src="./js/guess.js"></script>
+    <link rel="stylesheet" href="./css/guess_design.css">
+    <style>
+            @keyframes fadeInOut {
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+    </style>
+    <script>
+        const random = 300;
+    </script>
+
+</head>
+<body>
+    <div id="game">
+        <h2 class="title">Number Guessing Game</h2>
+        <input type="textbox" id="guess">
+        <button type="button" onclick="checknumber()">Guess</button>
+        <p id="message">Guess the number</p>
+        <p class="try" id="tries">Tries left: 5</p>
+    </div>
+</body>
+</html>
