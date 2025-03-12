@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LOG IN </title>
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function validateLogin() {
+    var username = document.getElementById("uname").value;
+    var password = document.getElementById("pword").value;
+    var message = document.getElementById("message");
+
+    if (username === "flight" && password === "1212") {
+        message.innerHTML = '<span class="text-success fw-bold">Correct 50/50 perfeccccc!!!</span>';
+        
+        // Redirect to home.html after 1 second
+        setTimeout(function() {
+            window.location.href = "home.html";
+        }, 1000);
+        
+    } else {
+        message.innerHTML = '<span class="text-danger fw-bold">✖ Invalid Username or Password.</span>';
+    }
+}
+
+    </script>
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100" 
+      style="background: radial-gradient(circle at top left, #0a0022, #23238d, #0f0e2b);">
+      
+    <!-- Outer Glow Effect -->
+    <div class="card p-4 border-0 shadow-lg text-center" 
+         style="width: 420px; backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.1);
+                border-radius: 20px; border: 3px solid rgba(255, 215, 0, 0.5);
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); animation: fadeIn 2s ease-out;">
+        
+        <!-- Glowing Header -->
+        <h3 class="text-center text-info fw-bold">
+            <div class="spinner-border text-warning">LOG</div> LOGIN <div class="spinner-border text-warning">IN</div>
+        </h3>
+
+        <div id="message" class="text-center mt-2"></div>
+
+        <!-- Neon Gold Loading Effect -->
+        <div class="d-flex justify-content-center my-3">
+            <div class="spinner-grow text-info mx-1"></div>
+            <div class="spinner-grow text-info mx-1"></div>
+            <div class="spinner-grow text-info mx-1"></div>
+            <div class="spinner-grow text-info mx-1"></div>
+            <div class="spinner-grow text-info mx-1"></div>
+            <div class="spinner-grow text-info mx-1"></div>
+            <div class="spinner-grow text-info mx-1"></div>
+        </div>
+        
+        <!-- Animated Inputs -->
+        <div class="mb-3">
+            <label class="form-label text-light form-label-outline-info">Username</label>
+            <input type="text" id="uname" class="form-control text-white border-0"
+                   style="background: rgba(255, 255, 255, 0.15); transition: 0.3s; border-radius: 10px;
+                          box-shadow: 0px 0px 8px rgba(255, 215, 0, 0.4);"
+                   placeholder="Enter Username">
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label text-light form-label">Password</label>
+            <input type="password" id="pword" class="form-control text-white border-0"
+                   style="background: rgba(255, 255, 255, 0.15); transition: 0.3s; border-radius: 10px;
+                          box-shadow: 0px 0px 8px rgba(255, 215, 0, 0.4);"
+                   placeholder="Enter password">
+        </div>
+
+        <!-- Gold Animated Button -->
+        <button onclick="validateLogin()" class="btn w-100 fw-bold text-white btn-info">
+            LOGIN
+        </button> 
+    </div>
+
+</body>
+</html>

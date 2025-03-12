@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student List</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #001f3f, #004080);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 50px 50px 30px 30px; /* Semi-oval effect */
+            box-shadow: 0px 10px 50px rgba(0, 255, 255, 0.3);
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Bounce Animation for the Title */
+        @keyframes bounceTitle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h2 {
+            font-size: 32px;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: bounceTitle 1.8s infinite ease-in-out;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-box {
+            width: 60%;
+            padding: 12px;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+            font-size: 16px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: 0.3s;
+            box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.5);
+        }
+
+        .search-box::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-box:focus {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .table-container {
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 15px;
+            border-radius: 40px;
+        }
+
+        thead {
+            background: rgba(0, 123, 255, 0.5);
+            border-radius: 10px;
+        }
+
+        th {
+            padding: 15px;
+            color: white;
+            font-size: 18px;
+        }
+
+        tbody tr {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 5px 20px rgba(0, 123, 255, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 10px;
+        }
+
+        tbody tr:hover {
+            transform: scale(1.03);
+            box-shadow: 0px 8px 30px rgba(0, 255, 255, 0.5);
+        }
+
+        td {
+            padding: 15px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-edit {
+            background: #28a745;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+            box-shadow: 0px 3px 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-delete {
+            background: #dc3545;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+            box-shadow: 0px 3px 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-edit:hover, .btn-delete:hover {
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+        @keyframes moveButton {
+            0% { transform: translateX(-100px); }  
+            100% { transform: translateX(100px); }  
+        }
+
+        .add-student-container {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .btn-custom {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #0056b3, #00a2ff);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0px 0px 15px rgba(0, 123, 255, 0.5);
+            display: inline-block;
+            animation: moveButton .8s infinite alternate ease-in-out;
+        }
+
+        .btn-custom:hover {
+            background: linear-gradient(135deg, #003d80, #0074cc);
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .search-box {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Student List</h2>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="🔍 Search Student">
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Id</th>
+                        <th>L-Name</th>
+                        <th>F-Name</th>
+                        <th>M-Name</th>
+                        <th>Course</th>
+                        <th>Year</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Quintinita</td>
+                        <td>Francis</td>
+                        <td>Ballena</td>
+                        <td>BSNBA</td>
+                        <td>12</td>
+                        <td class="action-buttons">
+                            <button class="btn btn-edit">✏ Edit</button>
+                            <button class="btn btn-delete">🗑 Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Moving Add Student Button -->
+        <div class="add-student-container">
+            <button class="btn btn-custom">➕ Add Student</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
