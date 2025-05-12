@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: green;
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+        }
+        .login{
+            background-color: antiquewhite;
+            padding: 100px;
+            width: 300px;
+            height: 100px;
+            margin: 10px;
+
+        }
+        
+        .input{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            width: 100%;
+            padding: 10px;
+            height: 20px;
+
+        }
+        .btn{
+            background-color: rgb(23, 223, 23);
+            color: whitesmoke;
+            margin-left: 80px;
+            width: 150px;
+            height: 40px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="login">
+            <div class="input">
+                <input type="text" id="username" name="username" placeholder="Username">
+            </div>
+            
+            <div class="input">
+                <input type="password" id="password" name="password" placeholder="password">
+            </div>
+            <button type="button" class="btn" onclick="validateLogin()">LOGIN</button>
+        </div>
+    </div>
+
+    <script>
+        function validateLogin() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if (username === "admin123" && password === "adminpass123") {
+        alert('login successful');
+    } else {
+        alert('invalid password or usernmae');
+    }
+}
+
+    </script>
+    
+</body>
+</html>
